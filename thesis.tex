@@ -1,0 +1,36 @@
+\documentclass[a4paper, 11pt]{scrartcl}
+\include{doc_cfg}
+
+% if no title page is used
+%\title{TITLE}
+%\subtitle{SUBTITLE}
+%\author{NAME}
+%\date{\today}
+
+\begin{document}
+% if no title page is used
+%\maketitle
+
+\include{title_page}
+\include{declaration_of_authorship}
+
+\pdfbookmark[section]{\contentsname}{\contentsname}
+
+\pagestyle{fancier-toc}
+\tableofcontents
+
+\newpage
+
+\pagestyle{fancier}
+\input{1-abstract}
+\input{2-theory}
+\input{3-algo}
+\input{4-tests}
+\include{glossary}
+
+\bibliographystyle{plain}
+\bibliography{cites}
+\nocite{*}
+%\bib
+\listoffigures
+\end{document}

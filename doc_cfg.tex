@@ -1,0 +1,165 @@
+% include packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{pdfpages}
+\usepackage{pgfplots}
+\usepackage[english]{babel}
+\usepackage[english]{fancyref}
+\usepackage{enumerate}
+\usepackage{listings}				% for code paragraphs (lst)
+\usepackage[pict2e]{struktex}		% wg. der Struktogramm-Umgebung, pict2e für beliebige Steigungen von Geraden
+\usepackage{graphics}
+\usepackage{subcaption}
+\usepackage{amsfonts}
+\usepackage{dsfont}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}					% to create 2D drawings
+\usepackage{tikz-3dplot}			% to create 3D drawings
+\usepackage{libertine}				% font, you can choose lmodern and others
+\usepackage{titleps}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{tabularx}
+\usepackage[open, openlevel=2]{bookmark}
+\usepackage{hyperref}
+\usepackage[all]{hypcap}
+\usepackage{mathtools}
+\usepackage{slashbox}
+\usepackage{changepage}
+\usepackage{lipsum}
+\usetikzlibrary{matrix}
+
+% set specific settings
+\setlength{\parindent}{0in}
+\setcounter{secnumdepth}{5} 		% damit werden Abschnitte bis zur Tiefe 5 mit Nummern versehen (also bis \subparagraph), der Standardwert ist 3
+\setcounter{tocdepth}{5}			% damit werden mehr Unterabschnitte ins Inhaltsverzeichnis aufgenommen
+% Zählervariable
+\newcounter{myenumi}				% nimmt aktuellen Wert von enumi auf
+
+% define colors
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{lightgray}{rgb}{0.83, 0.83, 0.83}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\definecolor{limegreen}{rgb}{0.2, 0.8, 0.2}
+\definecolor{deepblue}{rgb}{0,0,0.8}
+\definecolor{deepred}{rgb}{0.9,0,0}
+\definecolor{darkorange}{rgb}{1.0, 0.55, 0.0}
+\definecolor{lava}{rgb}{0.81, 0.06, 0.13}
+
+\definecolor{main-color}{rgb}{0.6627, 0.7176, 0.7764}
+\definecolor{back-color}{rgb}{0.1686, 0.1686, 0.1686}
+\definecolor{string-color}{rgb}{0.3333, 0.5254, 0.345}
+\definecolor{key-color}{rgb}{0.8, 0.47, 0.196}
+
+% misc (new commands, lstlisting styles, etc.)
+\hypersetup{linkbordercolor=lava}
+\hypersetup{citebordercolor=lava}
+
+\lstset
+{
+	language=Python,
+%	frame=tb,
+	frame=single,
+	tabsize=4,
+	breaklines=true,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=fixed,
+	basicstyle={\ttfamily},
+	numbers=left,
+	numberstyle=\tiny\ttfamily\color{gray},
+	breakatwhitespace=true,
+	morecomment=[f]{\#},
+	stringstyle=\color{deepgreen},
+	commentstyle=\color{gray},
+	keywordstyle = {\color{deepblue}},
+	keywordstyle = [2]{\color{deepblue}},
+	keywordstyle = [3]{\color{deepgreen}},
+	otherkeywords = {+,-,*,/,//,+=,-=,*=,/=,<,>,==,!=,<=,>=},
+	morekeywords = [3]{+,-,*,/,//,+=,-=,*=,/=,<,>,==,!=,<=,>=},
+	emph={return},
+	emphstyle=\color{lava},
+}
+
+\lstdefinestyle{dark}
+{
+	basicstyle = {\ttfamily \color{main-color}},
+	backgroundcolor = {\color{back-color}},
+	stringstyle = {\color{string-color}},
+	commentstyle=\color{gray},
+	keywordstyle = {\color{key-color}},
+	keywordstyle = [2]{\color{key-color}},
+	keywordstyle = [3]{\color{dkgreen}},
+	otherkeywords = {+,-,*,/,//,+=,-=,*=,/=,<,>,==,!=,<=,>=},
+	morekeywords = [3]{+,-,*,/,//,+=,-=,*=,/=,<,>,==,!=,<=,>=},
+	emph={return},
+	emphstyle=\color{lava},
+}
+
+\renewcommand{\lstlistingname}{Python Code}
+\renewcommand{\lstlistlistingname}{\lstlistingname}
+
+%\newcommand{\bib}
+%{
+%	\bibliographystyle{plain}
+%	\bibliography{cites}
+%	\nocite{*}
+%}
+
+\newpagestyle{fancier-toc}
+{
+	\sethead
+	{}{}{}
+	\setheadrule{.4pt}
+	
+	\setfoot
+	{}{\thepage}{}
+}
+
+\newpagestyle{fancier}
+{
+	\sethead
+	{\toptitlemarks \textit{\thesection} \quad \textit{\sectiontitle}}
+	{}
+	{\bottitlemarks \textit{\thesection} \quad \textit{\sectiontitle}}
+	\setheadrule{.4pt}
+	
+	\setfoot
+	{}{\thepage}{}
+}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclareSymbolFont{italics}{\encodingdefault}{\rmdefault}{m}{it}
+\DeclareSymbolFontAlphabet{\mathit}{italics}
+
+\makeatletter
+\count@=`a \advance\count@\m@ne
+\@whilenum{\count@<`z}\do{%
+	\advance\count@\@ne
+	\begingroup\lccode`A=\count@
+	\lowercase{\endgroup
+		\DeclareMathSymbol{A}{\mathalpha}{italics}{`A}%
+	}%
+}
+\count@=`A \advance\count@\m@ne
+\@whilenum{\count@<`Z}\do{%
+	\advance\count@\@ne
+	\begingroup\lccode`A=\count@
+	\lowercase{\endgroup
+		\DeclareMathSymbol{A}{\mathalpha}{italics}{`A}%
+	}%
+}
+\makeatother
+
+\newcommand{\mybar}[2][3]{{}\mkern#1mu\overline{\mkern-#1mu#2}}
+\newcommand{\tild}[2][3]{{}\mkern#1mu\tilde{\mkern-#1mu#2}}
+\renewcommand{\bar}{\mybar}
+\renewcommand{\labelenumii}{\theenumii}
+\renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
