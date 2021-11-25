@@ -21,6 +21,8 @@ thesis.tex is the main file which has to be executed. This imports your differen
 
 ## Custom Colors:
 
+These are only a few of the new custom colors:
+
 - `dkgreen` dark green
 - `deepgreen` deep green
 - `deepblue` deep blue
