@@ -9,7 +9,7 @@ thesis.tex is the main file which has to be executed. This imports your differen
 
 - `pdfpages` to simplify the inclusion of external multi-page PDF documents
 - `tikz` & `tikz-3dplot` to create (complex) graphics/drawings with 3D functionality
-- `libertine` which is a nice font, there are many fonts available
+- `libertinus` which is a nice font, there are many fonts available
 - `fancyhdr` for fancy headers, which for example can show the sections/chapters of your thesis
 - `mathtools` is based on `amsmath` and fixes various deficiencies of `amsmath`
 
