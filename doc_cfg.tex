@@ -7,6 +7,7 @@
 \usepackage[english]{babel}
 \usepackage[english]{fancyref}
 \usepackage{enumerate}
+\usepackage{enumitem}				% to easily customize enumeration/itemize environments
 \usepackage{listings}				% for code paragraphs (lst)
 \usepackage[pict2e]{struktex}		% wg. der Struktogramm-Umgebung, pict2e für beliebige Steigungen von Geraden
 \usepackage{graphics}
@@ -47,6 +48,7 @@
 \definecolor{deepgreen}{rgb}{0,0.5,0}
 \definecolor{limegreen}{rgb}{0.2, 0.8, 0.2}
 \definecolor{deepblue}{rgb}{0,0,0.8}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
 \definecolor{deepred}{rgb}{0.9,0,0}
 \definecolor{darkorange}{rgb}{1.0, 0.55, 0.0}
 \definecolor{lava}{rgb}{0.81, 0.06, 0.13}
@@ -104,6 +106,7 @@
 
 \renewcommand{\lstlistingname}{Python Code}
 \renewcommand{\lstlistlistingname}{\lstlistingname}
+\renewcommand{\labelitemi}{\scriptsize$\blacksquare$}
 
 %\newcommand{\bib}
 %{
