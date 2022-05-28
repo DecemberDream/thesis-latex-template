@@ -44,22 +44,34 @@ In Fig. \ref{fig:figure} we see a graph. Table \ref{tab:test} shows the results.
 \subsection{Code}
 You can also write code paragraphs, using the light theme
 
-\begin{lstlisting}[language=Python]
+\begin{lstlisting}[language=Python, caption={Sum from 1 to 9. (Light Theme)}]
 import numpy as np
 
-print(np.sum[1, 2, 3, 4, 5, 6, 7, 8, 9])
+def fibonacci(n: int) -> int:
+	if n <= 1: # Base case
+		return n
+	return fibonacci(n - 1) + fibonacci(n - 2) # Recursive case
+
+print(np.sum([fibonacci(n) for n in range(15)]))
+print("Hello, World!")
 \end{lstlisting}
 
 or the dark theme
 
-\begin{lstlisting}[language=Python, style=dark]
+\begin{lstlisting}[language=Python, style=dark, caption={Sum from 1 to 9. (Dark Theme)}]
 import numpy as np
 
-print(np.sum[1, 2, 3, 4, 5, 6, 7, 8, 9])
+def fibonacci(n: int) -> int:
+	if n <= 1: # Base case
+		return n
+	return fibonacci(n - 1) + fibonacci(n - 2) # Recursive case
+
+print(np.sum([fibonacci(n) for n in range(15)]))
+print("Hello, World!")
 \end{lstlisting}
 
 \subsection{New Commands}
-$\bar{u}\tild{u}$
+$\bar{u}\tild{u}$ (notice the bar and tilde lining up properly above the characters)
 
 \subsection{Equations}
 \begin{equation}

@@ -1,43 +1,51 @@
 % include packages
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[onehalfspacing]{setspace}
-\usepackage{pdfpages}
-\usepackage{pgfplots}
-\usepackage[english]{babel}
-\usepackage[english]{fancyref}
-\usepackage{enumerate}
-\usepackage{enumitem}				% to easily customize enumeration/itemize environments
-\usepackage{listings}				% for code paragraphs (lst)
-\usepackage[pict2e]{struktex}		% wg. der Struktogramm-Umgebung, pict2e für beliebige Steigungen von Geraden
-\usepackage{graphics}
-\usepackage{subcaption}
-\usepackage{amsfonts}
-\usepackage{amsmath}
-\usepackage{amssymb}
+
+\usepackage{amsfonts}				% classic package for additional features in mathematical typeseting
+\usepackage{amsmath}				% classic package for additional features in mathematical typeseting
+\usepackage{amssymb}				% classic package for additional features in mathematical typeseting
+\usepackage{mathtools}				% extends amsmath package with bug fixes
 \usepackage{dsfont}
+
+\usepackage{fontspec}				% allow XeTeX or LuaTeX to load OpenType fonts
+\usepackage{libertinus}				% font, you can choose lmodern and others
+\newfontfamily\Consolas{Consolas}	% typical Consolas font, used for the code blocks
+
+\usepackage[english]{babel}			% multilingual support
+\usepackage[english]{fancyref}		% fancy cross-references
+
 \usepackage{tikz}					% to create 2D drawings
 \usepackage{tikz-3dplot}			% to create 3D drawings
-\usepackage{libertinus}				% font, you can choose lmodern and others
-\usepackage{titleps}
-\usepackage{fancyhdr}
-\usepackage{listings}
-\usepackage{color}
-\usepackage{colortbl}
-\usepackage{tabularx}
-\usepackage[open, openlevel=2]{bookmark}
-\usepackage{hyperref}
-\usepackage[all]{hypcap}
-\usepackage{mathtools}
-\usepackage{slashbox}
-\usepackage{changepage}
-\usepackage{lipsum}
+\usepackage{pgfplots}				% based on TikZ, powerful visualization tool for scientific/technical graphics
 \usetikzlibrary{matrix}
 
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+
+\usepackage[onehalfspacing]{setspace}	% line spacing
+\usepackage{enumerate}				% gives "enumerate" environment an optional argument for various print styles
+\usepackage{enumitem}				% to easily customize enumeration/itemize environments
+\usepackage{listings}				% for code paragraphs (lst)
+\usepackage[pict2e]{struktex}		% for Nassi-Shneiderman diagrams, pict2e for arbitrary slopes of lines
+\usepackage{graphics}				% for various 'graphics' functions (inclusion of 'graphics' files, rotation, scaling)
+\usepackage{subcaption}				% for sub captions like (a) or "2.1"
+\usepackage{titleps}				% provides tools for setting of page styles
+\usepackage{listings}				% source code printer, uses environment name "lstlisting" instead of "listing"
+\usepackage{color}					% support for colored text
+\usepackage{colortbl}				% support for colored panels or cells of tables
+\usepackage[open, openlevel=2]{bookmark}	% modern management for bookmarks
+\usepackage{fancyhdr}				% to allow customization of page headers and footers
+\usepackage{hyperref}				% extends functionality of cross-referencing commands (turn text to hyperlinks)
+\usepackage[all]{hypcap}			% solves problem with hyperref which links to floats below the caption
+\usepackage{pdfpages}				% to insert external PDF pages
+\usepackage{slashbox}				% functionality to add slashes to cells in tables
+\usepackage{changepage}				% for example for changing page margins on odd pages
+\usepackage{lipsum}					% lipsum. it's dummy text
+
+
 % set specific settings
-\setlength{\parindent}{0in}
-\setcounter{secnumdepth}{5} 		% damit werden Abschnitte bis zur Tiefe 5 mit Nummern versehen (also bis \subparagraph), der Standardwert ist 3
-\setcounter{tocdepth}{5}			% damit werden mehr Unterabschnitte ins Inhaltsverzeichnis aufgenommen
+\setlength{\parindent}{0in}			% remove indentation when starting a new paragraph
+\setcounter{secnumdepth}{5} 		% numbers for sub paragraphs for depth 5 (default is 3)
+\setcounter{tocdepth}{5}			% number of sub paragraphs in table of contents
 % Zählervariable
 \newcounter{myenumi}				% nimmt aktuellen Wert von enumi auf
 
@@ -62,46 +70,38 @@
 \hypersetup{linkbordercolor=lava}
 \hypersetup{citebordercolor=lava}
 
+% settings for lstlistings (used for code blocks)
 \lstset
 {
 	language=Python,
-%	frame=tb,
-	frame=single,
+	frame=single, % frame=tb if the lines should only be at the top and bottom
 	tabsize=4,
 	breaklines=true,
 	aboveskip=3mm,
 	belowskip=3mm,
 	showstringspaces=false,
 	columns=fixed,
-	basicstyle={\ttfamily},
+	basicstyle=\small\Consolas, % \ttfamily for the usual style
 	numbers=left,
-	numberstyle=\tiny\ttfamily\color{gray},
-	breakatwhitespace=true,
-	morecomment=[f]{\#},
+	numberstyle=\small\Consolas\color{gray},
 	stringstyle=\color{deepgreen},
 	commentstyle=\color{gray},
-	keywordstyle = {\color{deepblue}},
-	keywordstyle = [2]{\color{deepblue}},
-	keywordstyle = [3]{\color{deepgreen}},
-	otherkeywords = {+,-,*,/,//,+=,-=,*=,/=,<,>,==,!=,<=,>=},
-	morekeywords = [3]{+,-,*,/,//,+=,-=,*=,/=,<,>,==,!=,<=,>=},
-	emph={return},
-	emphstyle=\color{lava},
+	morecomment=[f]{\#},
+	breakatwhitespace=true,
+	keywordstyle=\color{deepblue},
+	keywordstyle=[2]\color{deepblue},
+	keywordstyle=[3]\color{deepgreen},
 }
 
 \lstdefinestyle{dark}
 {
-	basicstyle = {\ttfamily \color{main-color}},
-	backgroundcolor = {\color{back-color}},
-	stringstyle = {\color{string-color}},
+	basicstyle=\small\Consolas\color{main-color}, % \ttfamily for the usual style
+	backgroundcolor=\color{back-color},
+	stringstyle=\color{string-color},
 	commentstyle=\color{gray},
-	keywordstyle = {\color{key-color}},
-	keywordstyle = [2]{\color{key-color}},
-	keywordstyle = [3]{\color{dkgreen}},
-	otherkeywords = {+,-,*,/,//,+=,-=,*=,/=,<,>,==,!=,<=,>=},
-	morekeywords = [3]{+,-,*,/,//,+=,-=,*=,/=,<,>,==,!=,<=,>=},
-	emph={return},
-	emphstyle=\color{lava},
+	keywordstyle=\color{key-color},
+	keywordstyle=[2]\color{key-color},
+	keywordstyle=[3]\color{dkgreen},
 }
 
 \renewcommand{\lstlistingname}{Python Code}
@@ -115,6 +115,7 @@
 %	\nocite{*}
 %}
 
+% remove section names in header of toc
 \newpagestyle{fancier-toc}
 {
 	\sethead
@@ -125,6 +126,7 @@
 	{}{\thepage}{}
 }
 
+% fancy header for sections
 \newpagestyle{fancier}
 {
 	\sethead
@@ -142,6 +144,7 @@
 \DeclareSymbolFont{italics}{\encodingdefault}{\rmdefault}{m}{it}
 \DeclareSymbolFontAlphabet{\mathit}{italics}
 
+% reposition bar and tilde above symbols in math environment
 \makeatletter
 \count@=`a \advance\count@\m@ne
 \@whilenum{\count@<`z}\do{%
