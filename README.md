@@ -1,5 +1,5 @@
-# Thesis $\LaTeX$ Template
-This template can be used for anything STEM related. An example can be found [here](example/example.pdf).
+# Thesis LaTeX Template
+This $\LaTeX$ template can be used for anything STEM related. An example can be found [here](example/example.pdf).
 
 This works for the current version of [TeXstudio](https://www.texstudio.org/) in combination with [MiKTeX](https://miktex.org/). It is recommended to use the [LuaLaTeX](https://www.luatex.org/) compiler.
 
